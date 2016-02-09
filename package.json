@@ -1,0 +1,23 @@
+{
+  "name": "database-with-server",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/paulducsantos/database-with-server.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/paulducsantos/database-with-server/issues"
+  },
+  "homepage": "https://github.com/paulducsantos/database-with-server#readme",
+  "dependencies": {
+    "mysql": "^2.10.2"
+  }
+}
