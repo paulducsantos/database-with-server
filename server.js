@@ -19,5 +19,11 @@ connection.connet(function(err){
 car PORT = process.env.NODE_ENV || 8080;
 
 app. get("/cast",function(req,res){
-  connection.query("SELECT * FROM characters where")
-})
+  connection.query("SELECT name * FROM characters ORDER BY ID;", function(err, result){
+    res.send(result);
+  });
+});
+
+app.listen(PORT, function() {
+  console.log("Listening at %s", PORT);
+});
