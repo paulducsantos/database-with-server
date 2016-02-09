@@ -18,14 +18,20 @@ connection.connect(function(err){
 
 var PORT = process.env.NODE_ENV || 8080;
 
-app. get("/cast",function(req,res){
-  connection.query("SELECT name * FROM characters ORDER BY ID;", function(err, result){
+app.get("/cast",function(req,res){
+  connection.query("SELECT name FROM characters ORDER BY ID;", function(err, result){
     res.send(result);
   });
 });
 
 app. get("/coolness-chart",function(req,res){
-  connection.query("SELECT name * FROM characters ORDER BY ID;", function(err, result){
+  connection.query("SELECT name, coolness_points FROM characters ORDER BY coolness_points;", function(err, result){
+    res.send(result);
+  });
+});
+
+app. get("/attitude-chart/:type",function(req,res){
+  connection.query("SELECT name FROM characters WHERE attitude =?;", [req.params.type], function(err, result){
     res.send(result);
   });
 });
