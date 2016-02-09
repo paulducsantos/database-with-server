@@ -9,16 +9,22 @@ var connection = mysql.createConnection({
   database: "seinfeld"
 });
 
-connection.connet(function(err){
+connection.connect(function(err){
   if(err){
-    console.log("Error" err.stack);
+    console.log("Error", err.stack);
   }
-  console.log("Connected as id: %s", connection.threatId)
+  console.log("Connected as id: %s", connection.threadId)
 })
 
-car PORT = process.env.NODE_ENV || 8080;
+var PORT = process.env.NODE_ENV || 8080;
 
 app. get("/cast",function(req,res){
+  connection.query("SELECT name * FROM characters ORDER BY ID;", function(err, result){
+    res.send(result);
+  });
+});
+
+app. get("/coolness-chart",function(req,res){
   connection.query("SELECT name * FROM characters ORDER BY ID;", function(err, result){
     res.send(result);
   });
